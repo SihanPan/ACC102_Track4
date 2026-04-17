@@ -48,7 +48,7 @@ if not data.empty:
 
     # 结论
     st.subheader("Key Insights")
-    st.write(f"Latest Close Price: ${data['Close'].iloc[-1]:.2f}")
+    st.write(f"Latest Close Price: ${data['Close'].iloc[-1].item():.2f}")
     st.write(f"Average Daily Return: {data['Daily Return'].mean():.4f}")
     st.write(f"Volatility (Std): {data['Daily Return'].std():.4f}")
 
