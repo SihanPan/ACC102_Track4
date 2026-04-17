@@ -1,8 +1,8 @@
 \# ACC102 Track4: Interactive Stock Analysis Tool
 
-Student Name: \[Your Name]
+Student Name: Sihan Pan
 
-Student ID: \[Your ID]
+Student ID: 2471700
 
 Module: ACC102
 
