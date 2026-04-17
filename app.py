@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # 页面设置
 st.set_page_config(page_title="Stock Analysis Tool", layout="wide")
 st.title("ACC102 Track4: Interactive Stock Analysis Tool")
-st.subheader("Student: [Your Name] | ID: [Your ID]")
+st.subheader("Student: Sihan Pan | ID: 2471700")
 
 # 用户输入
 ticker = st.text_input("Input Stock Ticker (e.g., AAPL, MSFT)", "AAPL")
