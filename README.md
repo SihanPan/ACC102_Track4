@@ -28,3 +28,6 @@ Yahoo Finance (yfinance), accessed April 2026.
 
 2\. streamlit run app.py
 
+https://acc102track4-2fscseqzqhaiyg2ewxqtau.streamlit.app/
+https://github.com/SihanPan/ACC102_Track4
+
