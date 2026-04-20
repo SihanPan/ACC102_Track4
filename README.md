@@ -28,6 +28,35 @@ Yahoo Finance (yfinance), accessed April 2026.
 
 2\. streamlit run app.py
 
+
+
+\## Methods
+
+- Data collection via yfinance
+- Data cleaning: drop missing values
+- Calculation: daily return
+- Visualization: price trend & return distribution
+- Interactive interface built with Streamlit
+
+
+
+\## Key Finding
+
+- Display real-time stock price and volume
+- Calculate daily return and volatility
+- Visualize price trend and return distribution
+- Support user-defined ticker and date range
+
+
+
+\## Limitations & Next Steps
+  
+- Only supports single stock analysis
+- No financial ratio or prediction
+- Next step: add multi-stock comparison
+
+  
+
 https://acc102track4-2fscseqzqhaiyg2ewxqtau.streamlit.app/
 
 https://github.com/SihanPan/ACC102_Track4
