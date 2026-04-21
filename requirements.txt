@@ -1,6 +1,6 @@
+python_version==3.10
 streamlit
 pandas
 matplotlib
 pandas-datareader
-setuptools
-packaging
+wheel
