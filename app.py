@@ -20,12 +20,19 @@ ticker = st.text_input("Input Stock Ticker (e.g., AAPL, MSFT)", "AAPL")
 start = st.date_input("Start Date", pd.to_datetime("2023-01-01"))
 end = st.date_input("End Date", pd.to_datetime("2026-01-01"))
 
-data = pdr.get_data_stooq(ticker, start=start, end=end)
-data = data.sort_index()
-st.success("Real US stock data loaded successfully (Stooq)")
+data = None
+for attempt in range(3):
+    try:
+        data = pdr.get_data_stooq(ticker, start=start, end=end)
+        if not data.empty:
+            break
+    except Exception:
+        pass
 
+data = data.sort_index()
 data = data.dropna()
 data["Daily Return"] = data["Close"].pct_change().fillna(0)
+st.success("Real US stock data loaded successfully (Stooq)")
 
 st.subheader("Data Preview")
 st.dataframe(data.tail(10))
