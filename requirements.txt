@@ -2,4 +2,4 @@ streamlit
 pandas
 matplotlib
 pandas-datareader==0.10.0
-setuptools<60
+packaging
