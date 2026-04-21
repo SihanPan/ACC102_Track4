@@ -1,7 +1,11 @@
 import streamlit as st
 import pandas as pd
-import pandas_datareader as pdr
 import matplotlib.pyplot as plt
+
+import sys
+sys.modules['distutils.version'] = __import__('packaging.version')
+
+import pandas_datareader as pdr
 
 st.title("AAPL Stock Analysis Tool")
 st.subheader("Data Source: Stooq (Real US Stock Data)")
