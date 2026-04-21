@@ -2,9 +2,14 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-import sys
-sys.modules['distutils.version'] = __import__('packaging.version')
-
+try:
+    from setuptools import distutils
+except ImportError:
+    import sys
+    from importlib.metadata import version
+    if version("pandas-datareader") >= "0.10.0":
+        sys.modules['distutils.version'] = __import__('packaging.version')
+        
 import pandas_datareader as pdr
 
 st.title("AAPL Stock Analysis Tool")
