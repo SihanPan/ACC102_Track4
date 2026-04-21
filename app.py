@@ -3,17 +3,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 import sys
-from packaging.version import Version
-sys.modules['distutils.version'] = sys.modules['packaging.version']
+try:
+    from distutils.version import LooseVersion
+except ImportError:
+    from packaging.version import Version as LooseVersion
+    sys.modules['distutils.version'] = sys.modules['packaging.version']
+    setattr(sys.modules['distutils.version'], 'LooseVersion', LooseVersion)
 
 import pandas_datareader as pdr
 
-# Page config
 st.set_page_config(page_title="Stock Analysis Tool", layout="wide")
 st.title("ACC102 Track4: Interactive Stock Analysis Tool")
 st.subheader("Student: Sihan Pan | ID: 2471700")
 
-# User inputs
 ticker = st.text_input("Input Stock Ticker (e.g., AAPL, MSFT)", "AAPL")
 start = st.date_input("Start Date", pd.to_datetime("2023-01-01"))
 end = st.date_input("End Date", pd.to_datetime("2026-01-01"))
@@ -22,18 +24,15 @@ data = pdr.get_data_stooq(ticker, start=start, end=end)
 data = data.sort_index()
 st.success("Real US stock data loaded successfully (Stooq)")
 
-# Data processing
 data = data.dropna()
 data["Daily Return"] = data["Close"].pct_change().fillna(0)
 
-# Display data
 st.subheader("Data Preview")
 st.dataframe(data.tail(10))
 
 st.subheader("Descriptive Statistics")
 st.write(data[["Close", "Volume", "Daily Return"]].describe())
 
-# Visualization
 st.subheader("Close Price Trend")
 fig1, ax1 = plt.subplots(figsize=(12, 4))
 ax1.plot(data.index, data["Close"], label="Close Price")
@@ -49,7 +48,6 @@ ax2.set_title("Daily Return Distribution")
 ax2.grid(alpha=0.3)
 st.pyplot(fig2)
 
-# Key metrics
 st.subheader("Key Insights")
 st.write(f"Latest Close Price: ${data['Close'].iloc[-1]:.2f}")
 st.write(f"Average Daily Return: {data['Daily Return'].mean():.4f}")
