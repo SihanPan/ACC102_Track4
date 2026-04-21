@@ -2,4 +2,5 @@ streamlit
 pandas
 matplotlib
 pandas-datareader==0.10.0
+setuptools==59.6.0
 packaging
