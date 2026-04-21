@@ -18,7 +18,7 @@ This tool helps users analyze stock prices, returns and volatility interactively
 
 \## Data Source
 
-Yahoo Finance (yfinance), accessed April 2026.
+Stooq via pandas-datareader
 
 
 
@@ -32,7 +32,7 @@ Yahoo Finance (yfinance), accessed April 2026.
 
 \## Methods
 
-- Data collection via yfinance
+- Data collection: Stooq via pandas-datareader
 - Data cleaning: drop missing values
 - Calculation: daily return
 - Visualization: price trend & return distribution
